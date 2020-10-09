@@ -1,32 +1,41 @@
 window.addEventListener('DOMContentLoaded', function () {
 
     const rectangleButton = document.getElementById('rectangleButton');
-        const rectangleInputH = document.getElementById('rectangleInputH');
-       const rectangleInputW = document.getElementById('rectangleInputW');
-        // squareButton = document.getElementById('squarebutton'),
-        // squareInput = document.getElementById('squareInput'),
-        // circleButton = document.getElementById('circleButton'),
-        // circleInput = document.getElementById('circleInput'),
-        // triangleButton = document.getElementById('triangleButton'),
-        // triangleInput = document.getElementById('triangleInput'),
-        // shapeContainer = document.getElementById('shapeContainer'),
-        // shapeInfo = document.getElementById('shapeInfo'),
-        // widthInfo = document.getElementById('widthInfo'),
-        // heightInfo = document.getElementById('heightInfo'),
-        // radiusInfo = document.getElementById('radiusInfo'),
-        // areaInfo = document.getElementById('areaInfo'),
-        // perimeterInfo = document.getElementById('perimeterInfo');
+    const rectangleInputH = document.getElementById('rectangleInputH');
+    const rectangleInputW = document.getElementById('rectangleInputW');
+    // squareButton = document.getElementById('squarebutton'),
+    // squareInput = document.getElementById('squareInput'),
+    // circleButton = document.getElementById('circleButton'),
+    // circleInput = document.getElementById('circleInput'),
+    // triangleButton = document.getElementById('triangleButton'),
+    // triangleInput = document.getElementById('triangleInput'),
+    // shapeContainer = document.getElementById('shapeContainer'),
+    // shapeInfo = document.getElementById('shapeInfo'),
+    // widthInfo = document.getElementById('widthInfo'),
+    // heightInfo = document.getElementById('heightInfo'),
+    // radiusInfo = document.getElementById('radiusInfo'),
+    // areaInfo = document.getElementById('areaInfo'),
+    // perimeterInfo = document.getElementById('perimeterInfo');
 
 
     class Shape {
         constructor(height, width) {
             this.height = height;
             this.width = width;
-            this.div = document.createElement('div');
-            this.div.style.width = `${this.width}px`;
-            this.div.style.height = `${this.height}px`;
-            shapeContainer.appendChild(this.div);
-            
+            if (this.width > 600 && this.height > 600) {
+                alert('Shape is too big! Try again!');
+            } else if (this.height > 600) {
+                alert('Height is too big! Try again!');
+            } else if (this.width > 600) {
+                alert('Width is too big! Try again!');
+
+            } else {
+                this.div = document.createElement('div');
+                this.div.style.width = `${this.width}px`;
+                this.div.style.height = `${this.height}px`;
+                this.div.className = "shape";
+                shapeContainer.appendChild(this.div);
+            };
 
 
         }
@@ -36,9 +45,9 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     class Circle extends Shape {
-        constructor() {
+        constructor(height, width) {
             super(height, width);
-            this.div.idName = "circle";
+            this.div.id = "circle";
         }
         describe() {
 
@@ -48,7 +57,7 @@ window.addEventListener('DOMContentLoaded', function () {
     class Triangle extends Shape {
         constructor() {
             super(height, width);
-            this.div.idName = "triangle"
+            this.div.id = "triangle"
         }
         describe() {
 
@@ -59,8 +68,11 @@ window.addEventListener('DOMContentLoaded', function () {
         constructor(height, width) {
             super(height, width);
             this.div.id = "rectangle";
-            
-            
+            if (this.div.id === undefined) {
+                
+            }
+
+
         }
         describe() {
 
@@ -68,25 +80,32 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     class Square extends Shape {
-        constructor() {
+        constructor(height, width) {
             super(height, width);
-            this.div.idName = "square";
+            this.div.id = "square";
         }
         describe() {
 
         }
     }
 
-rectangleButton.addEventListener('click', function newRectangle() {
-    new Rectangle(rectangleInputH.value, rectangleInputW.value)
-});
-// squareButton.addEventListener('click', new Square());
-// circleButton.addEventListener('click', new Circle());
-// triangleButton.addEventListener('click', new Triangle());
+    rectangleButton.addEventListener('click', function newRectangle() {
+        new Rectangle(rectangleInputH.value, rectangleInputW.value)
+        if 
+    });
+
+    squareButton.addEventListener('click', function newSquare() {
+        new Square(squareInput.value, squareInput.value);
+    });
+    circleButton.addEventListener('click', function newCircle() {
+        new Circle(circleInput.value, squareInput.value)
+    });
+
+    // triangleButton.addEventListener('click', new Triangle());
 
 
 
-// document.getElementById('field').value;
+    // document.getElementById('field').value;
 
     ///end of body
 });
