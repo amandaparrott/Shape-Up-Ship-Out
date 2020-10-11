@@ -38,7 +38,7 @@
     border-radius: 50%;
 }
 
-triangle {
-    /* border-bottom: 100px solid rgb(241, 241, 107);
-    border-right: 100px solid transparent; */
+.triangle {
+    border-bottom: 100px solid rgb(241, 241, 107);
+    border-right: 100px solid transparent;
 }

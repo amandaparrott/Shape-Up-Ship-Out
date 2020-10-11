@@ -55,6 +55,12 @@ window.addEventListener('DOMContentLoaded', function () {
             this.div.addEventListener('click', () => this.describe());
         }
         describe() {
+            shapeInfo.innerText = " ";
+            widthInfo.innerText = " ";
+            heightInfo.innerText = " ";
+            radiusInfo.innerText = " ";
+            areaInfo.innerText = " ";
+            perimeterInfo.innerText = " ";
             shapeInfo.innerText = 'Circle';
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
@@ -73,6 +79,12 @@ window.addEventListener('DOMContentLoaded', function () {
             this.div.addEventListener('click', () => this.describe());
         }
         describe() {
+            shapeInfo.innerText = " ";
+            widthInfo.innerText = " ";
+            heightInfo.innerText = " ";
+            radiusInfo.innerText = " ";
+            areaInfo.innerText = " ";
+            perimeterInfo.innerText = " ";
             shapeInfo.innerText = 'Triangle';
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
@@ -89,6 +101,12 @@ window.addEventListener('DOMContentLoaded', function () {
             this.div.addEventListener('click', () => this.describe());
         }
         describe() {
+            shapeInfo.innerText = " ";
+            widthInfo.innerText = " ";
+            heightInfo.innerText = " ";
+            radiusInfo.innerText = " ";
+            areaInfo.innerText = " ";
+            perimeterInfo.innerText = " ";
             shapeInfo.innerText = 'Rectangle';
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
@@ -102,14 +120,21 @@ window.addEventListener('DOMContentLoaded', function () {
         constructor(height, width) {
             super(height, width);
             this.div.classList.add('square');
+            this.div.addEventListener('click', () => this.describe());
         }
         describe() {
+            shapeInfo.innerText = " ";
+            widthInfo.innerText = " ";
+            heightInfo.innerText = " ";
+            radiusInfo.innerText = " ";
+            areaInfo.innerText = " ";
+            perimeterInfo.innerText = " ";
             shapeInfo.innerText = 'Square';
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
             radiusInfo.innerText = `N/A`;
             areaInfo.innerText = squareInput.value * squareInput.value;
-            perimeterInfo.innerText = (SquareInput.value * 2) + (squareInput.value * 2);
+            perimeterInfo.innerText = (squareInput.value * 2) + (squareInput.value * 2);
         }
     }
 
