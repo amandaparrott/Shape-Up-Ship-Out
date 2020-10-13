@@ -40,8 +40,9 @@ window.addEventListener('DOMContentLoaded', function () {
                 let y = getRandomNumber();
                 this.div.style.left = `${x}px`;
                 this.div.style.top = `${y}px`;
+                this.div.addEventListener('dblclick', () => this.deleteShape());
             };
-            this.div.addEventListener('dblclick', () => this.deleteShape());
+
         }
         deleteShape() {
             this.div.remove();
@@ -51,8 +52,10 @@ window.addEventListener('DOMContentLoaded', function () {
     class Circle extends Shape {
         constructor(height, width) {
             super(height, width);
-            this.div.classList.add('circle');
-            this.div.addEventListener('click', () => this.describe());
+            if (this.div) {
+                this.div.classList.add('circle');
+                this.div.addEventListener('click', () => this.describe());
+            }
         }
         describe() {
             shapeInfo.innerText = " ";
@@ -65,18 +68,20 @@ window.addEventListener('DOMContentLoaded', function () {
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
             radiusInfo.innerText = circleInput.value;
-            areaInfo.innerText = Math.floor(Math.PI * circleInput.value * circleInput.value);
-            perimeterInfo.innerText = Math.floor(2 * Math.PI * circleInput.value);
-}
+            areaInfo.innerText = Math.floor(Math.PI * `${this.height}` * `${this.height}`);
+            perimeterInfo.innerText = Math.floor(2 * Math.PI * `${this.height}`);
+        }
     }
 
     class Triangle extends Shape {
         constructor(height, width) {
             super(height, width);
-            this.div.classList.add('triangle');
-            this.div.style.borderBottom = `${this.width}px solid rgb(241, 241, 107)`;
-            this.div.style.borderRight = `${this.height}px solid transparent`;
-            this.div.addEventListener('click', () => this.describe());
+            if (this.div) {
+                this.div.classList.add('triangle');
+                this.div.style.borderBottom = `${this.width}px solid rgb(241, 241, 107)`;
+                this.div.style.borderRight = `${this.height}px solid transparent`;
+                this.div.addEventListener('click', () => this.describe());
+            }
         }
         describe() {
             shapeInfo.innerText = " ";
@@ -89,16 +94,18 @@ window.addEventListener('DOMContentLoaded', function () {
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
             radiusInfo.innerText = `N/A`;
-            areaInfo.innerText = .5 * triangleInput.value * triangleInput.value;
-            perimeterInfo.innerText = Math.floor(2 * triangleInput.value + Math.sqrt(2) * triangleInput.value);
+            areaInfo.innerText = .5 * `${this.height}` * `${this.height}`;
+            perimeterInfo.innerText = Math.floor(2 * `${this.height}` + Math.sqrt(2) * `${this.height}`);
         }
     }
 
     class Rectangle extends Shape {
         constructor(height, width) {
             super(height, width);
-            this.div.classList.add('rectangle');
-            this.div.addEventListener('click', () => this.describe());
+            if (this.div) {
+                this.div.classList.add('rectangle');
+                this.div.addEventListener('click', () => this.describe());
+            }
         }
         describe() {
             shapeInfo.innerText = " ";
@@ -111,16 +118,18 @@ window.addEventListener('DOMContentLoaded', function () {
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
             radiusInfo.innerText = `N/A`;
-            areaInfo.innerText = rectangleInputH.value * rectangleInputW.value;
-            perimeterInfo.innerText = (rectangleInputH.value * 2) + (rectangleInputW.value * 2);
+            areaInfo.innerText = `${this.height}` * `${this.width}`;
+            perimeterInfo.innerText = (`${this.height}` * 2) + (`${this.width}` * 2);
         }
     }
 
     class Square extends Shape {
         constructor(height, width) {
             super(height, width);
-            this.div.classList.add('square');
-            this.div.addEventListener('click', () => this.describe());
+            if (this.div) {
+                this.div.classList.add('square');
+                this.div.addEventListener('click', () => this.describe());
+            }
         }
         describe() {
             shapeInfo.innerText = " ";
@@ -133,8 +142,8 @@ window.addEventListener('DOMContentLoaded', function () {
             widthInfo.innerText = `${this.width}`;
             heightInfo.innerText = `${this.height}`;
             radiusInfo.innerText = `N/A`;
-            areaInfo.innerText = squareInput.value * squareInput.value;
-            perimeterInfo.innerText = (squareInput.value * 2) + (squareInput.value * 2);
+            areaInfo.innerText = `${this.height}` * `${this.height}`;
+            perimeterInfo.innerText = (`${this.height}` * 2) + (`${this.height}` * 2);
         }
     }
 
@@ -157,10 +166,10 @@ window.addEventListener('DOMContentLoaded', function () {
         return Math.floor(Math.random() * 600);
     };
 
-        
 
 
-    
+
+
 
     ///end of body
 });
